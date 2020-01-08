@@ -18,3 +18,8 @@
     background: radial-gradient(black, grey);
     border-radius: 10px;
 }
+
+.guns {
+    width: 100%;
+    height: 100%;
+}
