@@ -3,7 +3,7 @@
     width: 500px;
     border: 10px black solid;
     display: grid;
-    grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+    grid-template: repeat(10, 50px) / repeat(10, 50px);
     position: absolute;
 }
 
@@ -19,7 +19,27 @@
     border-radius: 10px;
 }
 
-.guns {
+.guns, .player-container {
     width: 100%;
     height: 100%;
+    margin: auto;
+    padding: 1px;
+}
+
+.player {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    z-index: 1;
+}
+
+.gun {
+    width: 25px;
+    z-index: 10;
+    position: relative;
+    left: 20px;
+    bottom: 20px;
+    background-color: rgba(150, 150, 150, 0.8);
+    padding: 2px;
+    border-radius: 5px;
 }
