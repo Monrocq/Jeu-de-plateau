@@ -67,24 +67,56 @@ $(function() {
     }
 
     //Initialisation des positions des joueurs
-    var listPlayers = [];
-    var playersNumb = [];
-    for (k = 0; k < 2; k++) {
-        let numb;
-        let player;
-        do {
-            numb = Math.floor(Math.random()*100);
-            if (numb < 10) {
-                numb = '0'+numb;
-            }
-        } while (listNumb.includes(numb) || gunsNumb.includes(numb) || playersNumb.includes(numb));
-        playersNumb.push(numb);
-    }
+    do {
+        var playersNumb = [];
+        for (k = 0; k < 2; k++) {
+            let numb;
+            let player;
+            do {
+                numb = Math.floor(Math.random()*100);
+                if (numb < 10) {
+                    numb = '0'+numb;
+                }
+            } while (listNumb.includes(numb) || gunsNumb.includes(numb) || playersNumb.includes(numb));
+            playersNumb.push(numb);
+        }
+    } while (verifPlacement(playersNumb));
     
     //Création des joueurs
+    function verifPlacement(playersNumb) {
+        let numb1 = playersNumb[0].toString();
+        let numb2 = playersNumb[1].toString();
+        let player1 = {
+            x: numb1[0],
+            y: numb1[1]
+        };
+        let player2 = {
+            x: numb2[0],
+            y: numb2[1]
+        };
+        let player1Int = {
+            x: parseInt(numb1[0]),
+            y: parseInt(numb1[1])
+        };
+        let player2Int = {
+            x: parseInt(numb2[0]),
+            y: parseInt(numb2[1])
+        };
+        
+        if (player1.x === player2.x || (player1Int.x + 1) === player2Int.x || (player1Int.x - 1) === player2Int.x) {
+            return true;
+        } else if (player1.y === player2.y || (player1Int.y + 1) === player2Int.y || (player1Int.y - 1) === player2Int.y) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     players = [];
     players.push($('<div class="player-container"><img class="player" src="assets/img/P1.svg"></div>'))
     players.push($('<div class="player-container"><img class="player" src="assets/img/P2.svg"></div>'))
+
+
     
     //Intégration des joueurs à la map
     for (k = 0; k < 2; k++) {
