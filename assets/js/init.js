@@ -113,8 +113,8 @@ $(function() {
     }
 
     players = [];
-    players.push($('<div class="player-container"><img class="player" src="assets/img/P1.svg"></div>'))
-    players.push($('<div class="player-container"><img class="player" src="assets/img/P2.svg"></div>'))
+    players.push($('<div class="player-container"><img class="player" id="player1" src="assets/img/P1.svg"></div>'))
+    players.push($('<div class="player-container"><img class="player" id="player2" src="assets/img/P2.svg"></div>'))
 
 
     
@@ -126,7 +126,5 @@ $(function() {
     //Intégration de l'arme de base
     $('<img class="gun" src="assets/img/gun.svg">').appendTo($('#case'+playersNumb[0]));
     $('<img class="gun" src="assets/img/gun.svg">').appendTo($('#case'+playersNumb[1]));
-
-    console.log(playersNumb)
 
 })
