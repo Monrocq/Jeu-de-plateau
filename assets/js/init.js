@@ -127,4 +127,8 @@ $(function() {
     $('<img class="gun" src="assets/img/gun.svg">').appendTo($('#case'+playersNumb[0]));
     $('<img class="gun" src="assets/img/gun.svg">').appendTo($('#case'+playersNumb[1]));
 
+    //initialisation des infos
+    dealer = 1;
+    info = new window.Info(dealer, 100, 10, 100, 10);
+
 })

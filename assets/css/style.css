@@ -1,3 +1,8 @@
+body {
+    max-width: 1000px;
+    margin: auto;
+}
+
 #plateau {
     height: 500px;
     width: 500px;
@@ -55,4 +60,16 @@
 
 .d-none {
     display: none;
+}
+
+section {
+    display: inline-block;
+}
+
+aside {
+    float: right;
+}
+
+span {
+    color: purple;
 }
