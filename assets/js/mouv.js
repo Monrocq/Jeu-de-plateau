@@ -91,6 +91,10 @@ $(function() {
     function toggleGuns(event) {
         if ($('#'+event).children().hasClass('player-container') && $('#'+event).children().hasClass('guns')) {
             $('#'+event).children('img:first').addClass('toShow').addClass('d-none');
+            var joueur = info.tour;
+            var arme = $('#'+event).children('img:last').attr('alt');
+            var joueurs = ['', info.pd1, info.pd2];
+            (info.tour === 2) ? info.pd2 = weapons[arme] : info.pd1 = weapons[arme];
         } else if ($('.toShow').length) {
             $('.toShow').removeClass('toShow');
         } else if ($('.d-none')) {

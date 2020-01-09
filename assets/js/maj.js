@@ -6,6 +6,8 @@ $(function() {
             this._pd1 = pd1;
             this._pv2 = pv2;
             this._pd2 = pd2;
+            this._def1 = false;
+            this._def2 = false;
             this.majInfo();
         }
 
@@ -52,6 +54,30 @@ $(function() {
         set pd2(pd2) {
             this._pd2 = pd2;
             $('#pd2').html(pd2);
+        }
+
+        get def1() {
+            return this._def1;
+        }
+
+        set def1(value) {
+            this._def1 = value;
+        }
+
+        enableDef1() {
+            this._def1 = !this._def1;
+        }
+
+        get def2() {
+            return this._def2;
+        }
+
+        set def2(value) {
+            this._def2 = value;
+        }
+
+        enableDef2() {
+            this._def2 = !this._def2;
         }
 
         majInfo() {
