@@ -1,7 +1,14 @@
 $(function() {
 
+    function deUnderlineCases() {
+        $('.underline').removeClass('underline');
+    }
+
     function verifBlock(square) {
         if ($(square).children().hasClass('block')) {
+            return true;
+        }
+        if ($(square).children().hasClass('player-container')) {
             return true;
         }
     }
@@ -16,7 +23,7 @@ $(function() {
             x: parseInt(numb[0]),
             y: parseInt(numb[1])
         };
-        
+        //Initialisation des cases
         let cases = {
             1: [(playerInt.x - 1), playerInt.y],
             2: [(playerInt.x - 2), playerInt.y],
@@ -31,7 +38,7 @@ $(function() {
             11: [playerInt.x, (playerInt.y - 2)],
             12: [playerInt.x, (playerInt.y - 3)],
         }
-        
+        //Placement des cases
         var place = 1;
         for (var i = 1; i <= 4; i++) {
             var j = 0;
@@ -54,14 +61,41 @@ $(function() {
         return square.replace('case', '');
     }
 
-    let placementP1 = localizePlayer('#player1');
-    let placementP2 = localizePlayer('#player2');
+    function eventMove(player) {
+        $('.underline').on('click', (e) => {
+            $(e.currentTarget).append($(player).parent().parent().children());
+            deEvent();
+            tour();
+        });
+    }
 
-    underlineCase(placementP1);
-    underlineCase(placementP2);
+    function deEvent() {
+        $('.case').off();
+    }
+
+    dealer = 1;
+
+    function tour() {
+        deUnderlineCases();
+        let placementP1 = localizePlayer('#player1');
+        let placementP2 = localizePlayer('#player2');
+        switch(dealer) {
+            case 1:
+                underlineCase(placementP1);
+                eventMove('#player1');
+                dealer = 2;
+                break;
+            case 2:
+                underlineCase(placementP2);
+                eventMove('#player2');
+                dealer = 1;
+                break;
+        }
+    }
+
+    tour();
 
     function mouv() {
 
     }
-
 })
