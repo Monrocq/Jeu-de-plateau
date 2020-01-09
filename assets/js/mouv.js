@@ -63,14 +63,34 @@ $(function() {
 
     function eventMove(player) {
         $('.underline').on('click', (e) => {
-            $(e.currentTarget).append($(player).parent().parent().children());
+            $(e.currentTarget).prepend($(player).parent().parent().children('.player-container, .gun'));
             deEvent();
+            switchGuns(e.currentTarget);
+            toggleGuns($(e.currentTarget).attr('id'));
             tour();
         });
     }
 
     function deEvent() {
         $('.case').off();
+    }
+
+    function switchGuns(event) {
+        if ($(event).children().hasClass('guns')) {
+            $(event).children('img:first').toggleClass('gun').toggleClass('guns');
+            $(event).children('img:last').toggleClass('gun').toggleClass('guns');
+        }
+    }
+
+    function toggleGuns(event) {
+        console.log(event);
+        if ($('#'+event).children().hasClass('player-container') && $('#'+event).children().hasClass('guns')) {
+            $('#'+event).children('img:first').addClass('toShow').addClass('d-none');
+        } else if ($('.toShow').length) {
+            $('.toShow').removeClass('toShow');
+        } else if ($('.d-none')) {
+            $('.d-none').removeClass('d-none');
+        }
     }
 
     dealer = 1;

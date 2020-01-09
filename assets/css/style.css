@@ -52,3 +52,7 @@
     box-shadow: -1px 1px 5px 9px greenyellow;
     cursor: pointer;
 }
+
+.d-none {
+    display: none;
+}
