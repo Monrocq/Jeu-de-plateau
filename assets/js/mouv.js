@@ -67,7 +67,13 @@ $(function() {
             deEvent();
             switchGuns(e.currentTarget);
             toggleGuns($(e.currentTarget).attr('id'));
-            tour();
+            if (!verifFight(e.currentTarget)) {
+                tour();
+            } else {
+                alert('Sento Kaishi!');
+                deUnderlineCases();
+                fight();
+            }
         });
     }
 
@@ -83,17 +89,18 @@ $(function() {
     }
 
     function toggleGuns(event) {
-        console.log(event);
         if ($('#'+event).children().hasClass('player-container') && $('#'+event).children().hasClass('guns')) {
             $('#'+event).children('img:first').addClass('toShow').addClass('d-none');
+            var joueur = info.tour;
+            var arme = $('#'+event).children('img:last').attr('alt');
+            var joueurs = ['', info.pd1, info.pd2];
+            (info.tour === 2) ? info.pd2 = weapons[arme] : info.pd1 = weapons[arme];
         } else if ($('.toShow').length) {
             $('.toShow').removeClass('toShow');
         } else if ($('.d-none')) {
             $('.d-none').removeClass('d-none');
         }
     }
-
-    dealer = 1;
 
     function tour() {
         deUnderlineCases();
@@ -104,18 +111,43 @@ $(function() {
                 underlineCase(placementP1);
                 eventMove('#player1');
                 dealer = 2;
+                info.tour = 1;
                 break;
             case 2:
                 underlineCase(placementP2);
                 eventMove('#player2');
                 dealer = 1;
+                info.tour = 2;
                 break;
         }
     }
 
+    function verifFight(event) {
+        var numCase = $(event).attr('id').replace('case', '');
+        let numb = numCase.toString();
+        let playerStr = {
+            x: numb[0],
+            y: numb[1]
+        };
+        let playerInt = {
+            x: parseInt(numb[0]),
+            y: parseInt(numb[1])
+        };
+        let cases = {
+            1: [(playerInt.x - 1), playerInt.y],
+            2: [playerInt.x, (playerInt.y + 1)],
+            3: [(playerInt.x + 1), playerInt.y],
+            4: [playerInt.x, (playerInt.y - 1)],
+        }
+        for(var place in cases) {
+            let square = '#case' + ((cases[place][0].toString())) + ((cases[place][1].toString()));
+            if ($(square).children().hasClass('player-container')) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     tour();
 
-    function mouv() {
-
-    }
 })

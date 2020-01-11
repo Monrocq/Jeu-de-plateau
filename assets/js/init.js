@@ -55,11 +55,12 @@ $(function() {
         AK47: 18,
         Fusil: 13,
     }
+    window.weapons = weapons;
     var guns = [];
-    guns.push($('<img class="guns sniper" src="assets/img/sniper.svg">'))
-    guns.push($('<img class="guns assault" src="assets/img/assault.svg">'))
-    guns.push($('<img class="guns ak47" src="assets/img/ak47.svg">'))
-    guns.push($('<img class="guns fusil" src="assets/img/fusil.svg">'))
+    guns.push($('<img class="guns sniper" src="assets/img/sniper.svg" alt="Sniper">'))
+    guns.push($('<img class="guns assault" src="assets/img/assault.svg" alt="Assault">'))
+    guns.push($('<img class="guns ak47" src="assets/img/ak47.svg" alt="AK47">'))
+    guns.push($('<img class="guns fusil" src="assets/img/fusil.svg" alt="Fusil">'))
     
     //Intégration des armes à la map
     for (k = 0; k < 4; k++) {
@@ -126,5 +127,9 @@ $(function() {
     //Intégration de l'arme de base
     $('<img class="gun" src="assets/img/gun.svg">').appendTo($('#case'+playersNumb[0]));
     $('<img class="gun" src="assets/img/gun.svg">').appendTo($('#case'+playersNumb[1]));
+
+    //initialisation des infos
+    dealer = 1;
+    info = new window.Info(dealer, 100, 10, 100, 10);
 
 })
