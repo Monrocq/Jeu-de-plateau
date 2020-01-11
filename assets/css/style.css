@@ -43,3 +43,16 @@
     padding: 2px;
     border-radius: 5px;
 }
+
+.underline {
+    background: radial-gradient(white, green)
+}
+
+.underline:hover {
+    box-shadow: -1px 1px 5px 9px greenyellow;
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}
