@@ -18,18 +18,25 @@
             <h2>Statut de la partie : <span id="statut">Pre-fight</span></h2>
             <hr>
             <h3>Info :</h3>
-            <h4>C'est le tour de : <em>Player</em><span id="tour"></span></h4>
-            <input id="attack-btn" class="bouton" type="button" value="Attaquer !" disabled>
-            <input id="defense-btn" class="bouton" type="button" value="Se Défendre !" disabled>
-            <br>
+            <h4 id="tour-display">C'est le tour de : <em>Player</em><span id="tour"></span></h4>
             <div id="etat">
                 <br><b id="etat-content"></b>
             </div>
             <hr>
             <h4>PV de Player1 : <span id="pv1"></span>/100</h4>
-            <h4>Arme de Player1 : <span id="pd1"></span> points de dégâts</h4><br>
+            <h4>Arme de Player1 : <span id="pd1"></span> points de dégâts</h4>
+            <div id="actions-p1">
+                <input class="bouton attack-btn" type="button" value="Attaquer !" disabled>
+                <input class="bouton defense-btn" type="button" value="Se Défendre !" disabled>
+            </div>
+            <br>
             <h4>PV de Player2 : <span id="pv2"></span>/100</h4>
-            <h4>Arme de Player2 : <span id="pd2"></span> points de dégâts</h4><hr>
+            <h4>Arme de Player2 : <span id="pd2"></span> points de dégâts</h4>
+            <div id="actions-p2">
+                <input class="bouton attack-btn" type="button" value="Attaquer !" disabled>
+                <input class="bouton defense-btn" type="button" value="Se Défendre !" disabled>
+            </div>
+            <hr>
             <h3>Enjoy!</h3>
         </aside>
         <footer>

@@ -13,15 +13,27 @@ $(function() {
                 underlineCase(placementP1);
                 eventMove('#player1');
                 dealer = 2;
-                info.tour = 1;
+                //info.tour = 1;
+                switchTour();
                 break;
             case 2:
                 underlineCase(placementP2);
                 eventMove('#player2');
                 dealer = 1;
-                info.tour = 2;
+                //info.tour = 2;
+                switchTour();
                 break;
         }
+    }
+
+    function switchTour() {
+        if (dealer === 2) {
+            info.tour = 1;
+            $('#tour-display').css('backgroundColor', 'rgba(255,0,0,0.6)');
+         } else {
+            info.tour = 2;
+            $('#tour-display').css('backgroundColor', 'rgba(0,0,255,0.6');
+         } 
     }
 
     //Vérifie si un combat doit avoir lieu

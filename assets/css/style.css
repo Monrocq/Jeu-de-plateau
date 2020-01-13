@@ -1,7 +1,27 @@
+@media screen and (min-width: 800px) {
+    aside {
+        float: right;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    aside {
+        float: none;
+        display: block;
+        padding-top: 550px;
+    }
+}
+
 body {
     max-width: 1000px;
+    min-width: 850px;
     margin: auto;
     padding: 20px;
+    background: url('../img/background.png') center top;
+}
+
+header, #plateau, aside {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 #plateau {
@@ -63,12 +83,34 @@ body {
     display: none;
 }
 
+header {
+    text-align: center;
+}
+
 section {
     display: inline-block;
 }
 
 aside {
-    float: right;
+    padding: 20px;
+}
+
+#tour-display {
+    padding: 5px;
+    color: white;
+}
+
+#actions-p1, #actions-p2 {
+    padding: 5px;
+    text-align: center;
+}
+
+#actions-p1 {
+    background-color: rgba(255,0,0,0.6);
+}
+
+#actions-p2 {
+    background-color: rgba(0,0,255,0.6);
 }
 
 span {
@@ -78,7 +120,7 @@ span {
 #etat {
     width: 100%;
     height: 50px;
-    background-color: pink;
+    background-color: green;
     margin-top: 20px;
 }
 
@@ -88,3 +130,4 @@ b {
     width: 100%;
     display: block;
 }
+
