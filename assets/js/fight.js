@@ -1,13 +1,26 @@
 $(function() {
 
+    //Rend par défault l'affichage d'un évenement qui vient de se produire, caché dès l'initialisation de la partie.
     $('#etat').hide();
 
+    //Nommage de la fonction de combat afin de pouvoir l'appeler lorsque qu'une detection de combat survient dans mouv.js
     fight = () => {
         
+        //Change les paramètres d'environnements pour passer le jeux en mode Combat
         info.tour = dealer;
         $('#statut').html('Fight!')
         $('.bouton').prop('disabled', false);
 
+        //Débute le mode combat
+        main();
+
+        //Module central de la gestion du combat
+        function main() {
+            disableDef();
+            eventing();
+        }
+
+        //Permet de savoir qui a la main dans le jeux
         function noDealer() {
             if (info.tour === 2) {
                 return 1;
@@ -16,6 +29,7 @@ $(function() {
             }
         }
 
+        //Ajoute des évenements sur les boutons d'attaque et de défense
         function eventing() {
             $('.bouton').off();
             $('#attack-btn').one('click', () => {
@@ -39,11 +53,13 @@ $(function() {
             });
         }
 
+        //Permet de faire le changement de tour
         function switchTour() {
             (info.tour === 2) ? info.tour = 1 : info.tour = 2;
             main();
         }
 
+        //Désactive la défense si elle était activé le tour précédent
         function disableDef() {
             let defs = ['', info.def1, info.def2];
             if (info.tour === 2) {
@@ -53,6 +69,7 @@ $(function() {
             }
         }
 
+        //Gestion de la fin du jeux
         function finish() {
             if (info.pv1 <= 0 || info.pv2 <= 0) {
                 if (info.pv1 <= 0) {
@@ -69,13 +86,6 @@ $(function() {
             }
         }
 
-        function main() {
-            disableDef();
-            eventing();
-        }
-
-        main();
-        
     }
 
 

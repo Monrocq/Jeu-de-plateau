@@ -1,11 +1,51 @@
 $(function() {
+    //Création de la classe arme qui servira a équiper un joueur
+    class Arme {
+        constructor(arme) {
+            this._pd = weapons[arme];
+        }
+
+        get pd() {
+            return this._pd;
+        }
+
+        set pd(pd) {
+            this._pd = weapons[pd];
+        }
+
+    }
+
+    //Création de la classe joueur avec ses points de vies et ses points de dégats
+    class Joueur {
+        constructor(pv, weapon) {
+            this._pv = pv;
+            this._weapon = new Arme(weapon);
+        }
+
+        get pv() {
+            return this._pv;
+        }
+
+        set pv(pv) {
+            this._pv = pv;
+        }
+
+        get pd() {
+            return this._weapon.pd;
+        }
+
+        set pd(arme) {
+            this._weapon.pd = arme;
+
+        }
+    }
+
+    //Unification des classes autour d'un seul et même tableau de bord pour simplifier la gestion du jeux
     class Info {
         constructor(tour, pv1, pd1, pv2, pd2) {
             this._tour = tour;
-            this._pv1 = pv1;
-            this._pd1 = pd1;
-            this._pv2 = pv2;
-            this._pd2 = pd2;
+            this._p1 = new Joueur(pv1, pd1);
+            this._p2 = new Joueur(pv2, pd2);
             this._def1 = false;
             this._def2 = false;
             this.majInfo();
@@ -21,39 +61,39 @@ $(function() {
         }
 
         get pv1() {
-            return this._pv1;
+            return this._p1.pv;
         }
 
         set pv1(pv1) {
-            this._pv1 = pv1;
+            this._p1.pv = pv1;
             $('#pv1').html(pv1);
         }
 
         get pv2() {
-            return this._pv2;
+            return this._p2.pv;
         }
 
         set pv2(pv2) {
-            this._pv2 = pv2;
+            this._p2.pv = pv2;
             $('#pv2').html(pv2);
         }
 
         get pd1() {
-            return this._pd1;
+            return this._p1.pd;
         }
 
         set pd1(pd1) {
-            this._pd1 = pd1;
-            $('#pd1').html(pd1);
+            this._p1.pd = pd1;
+            $('#pd1').html(this._p1.pd);
         }
 
         get pd2() {
-            return this._pd2;
+            return this._p2.pd;
         }
 
         set pd2(pd2) {
-            this._pd2 = pd2;
-            $('#pd2').html(pd2);
+            this._p2.pd = pd2;
+            $('#pd2').html(this._p2.pd);
         }
 
         get def1() {
@@ -82,12 +122,14 @@ $(function() {
 
         majInfo() {
             $('#tour').html(this._tour);
-            $('#pv1').html(this._pv1);
-            $('#pv2').html(this._pv2);
-            $('#pd1').html(this._pd1);
-            $('#pd2').html(this._pd2);
+            $('#pv1').html(this._p1.pv);
+            $('#pv2').html(this._p2.pv);
+            $('#pd1').html(this._p1.pd);
+            $('#pd2').html(this._p2.pd);
         }
-    }
+    }    
 
+    //Prévention d'insertion de la classe Info dans les variables globales
     window.Info = Info;
+    
 })
