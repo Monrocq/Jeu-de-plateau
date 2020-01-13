@@ -8,7 +8,11 @@
     aside {
         float: none;
         display: block;
-        padding-top: 550px;
+        padding-top: 550px !important;
+    }
+
+    body {
+        min-width: 550px !important;
     }
 }
 
