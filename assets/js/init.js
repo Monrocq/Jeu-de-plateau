@@ -1,5 +1,5 @@
 
-$(function() {
+$(document).ready(function() {
 
     //Initialisation du plateau vide
     for(var i = 0; i < 10; i++) {
@@ -9,7 +9,7 @@ $(function() {
         }
     }
 
-    //Création des block
+    //Création des blocks
     var listBlock = [];
     var listNumb = [];
     for (var k = 0; k < 12; k++) {
@@ -54,6 +54,7 @@ $(function() {
         Assault: 20,
         AK47: 18,
         Fusil: 13,
+        Gun: 10
     }
     window.weapons = weapons;
     var guns = [];
@@ -128,8 +129,10 @@ $(function() {
     $('<img class="gun" src="assets/img/gun.svg">').appendTo($('#case'+playersNumb[0]));
     $('<img class="gun" src="assets/img/gun.svg">').appendTo($('#case'+playersNumb[1]));
 
-    //initialisation des infos
+    //initialisation et instanciation des infos
     dealer = 1;
-    info = new window.Info(dealer, 100, 10, 100, 10);
-
+    
+    info = new Info(dealer, 100, 'Gun', 100, 'Gun');
+    
+    
 })
