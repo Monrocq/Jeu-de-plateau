@@ -1,6 +1,7 @@
 $(function() {
 
     //Lance la partie
+    $('input').prop('disabled', true);
     tour();
 
     //Gestion principal d'un tour
@@ -103,6 +104,7 @@ $(function() {
                 }
                 j++;
                 $(square).addClass('underline');
+                (dealer === 1) ? $(square).addClass('underline-red') : $(square).addClass('underline-blue');
             }
         }
     }
@@ -142,7 +144,7 @@ $(function() {
 
     //Désurlignage des cases lorsqu'on passe au tour suivant
     function deUnderlineCases() {
-        $('.underline').removeClass('underline');
+        $('.underline').removeClass('underline-red').removeClass('underline-blue').removeClass('underline');
     }
 
     //Permet de géolocaliser un joueur sur le terrain

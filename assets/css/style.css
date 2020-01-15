@@ -1,10 +1,10 @@
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 960px) {
     aside {
         float: right;
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 960px) {
     aside {
         float: none;
         display: block;
@@ -17,7 +17,7 @@
 }
 
 body {
-    max-width: 1000px;
+    max-width: 1100px;
     min-width: 850px;
     margin: auto;
     padding: 20px;
@@ -29,8 +29,8 @@ header, #plateau, aside {
 }
 
 #plateau {
-    height: 500px;
-    width: 500px;
+    height: 519px;
+    width: 519px;
     border: 10px black solid;
     display: grid;
     grid-template: repeat(10, 50px) / repeat(10, 50px);
@@ -74,12 +74,21 @@ header, #plateau, aside {
     border-radius: 5px;
 }
 
-.underline {
-    background: radial-gradient(white, green)
+.underline-red {
+    background: radial-gradient(white, pink)
 }
 
-.underline:hover {
-    box-shadow: -1px 1px 5px 9px greenyellow;
+.underline-blue {
+    background: radial-gradient(white, turquoise)
+}
+
+.underline-red:hover {
+    box-shadow: -1px 1px 5px 9px orange;
+    cursor: pointer;
+}
+
+.underline-blue:hover {
+    box-shadow: -1px 1px 5px 9px blue;
     cursor: pointer;
 }
 

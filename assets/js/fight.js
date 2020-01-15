@@ -41,7 +41,7 @@ $(function() {
                 (info.tour === 2) ? info.pv1 -= pd[info.tour] : info.pv2 -= pd[info.tour];
                 
                 (finish()) ? alert('Rechargez la page si vous souhaitez recommencer') : setTimeout(switchTour, 2000);;
-            });
+            }).addClass('btn-outline-primary');
             $(selecterBtn('defense')).one('click', () => {
                 $('input').prop('disabled', true);
                 $('#etat-content').html('Bim, bouclier déployé!')
@@ -53,7 +53,7 @@ $(function() {
                 } 
                 setTimeout(switchTour, 2000);
                 
-            });
+            }).addClass('btn-outline-secondary');
         }
 
         //Permet de faire le changement de tour

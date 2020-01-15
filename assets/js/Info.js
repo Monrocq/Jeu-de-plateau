@@ -1,44 +1,3 @@
-$(function() {
-    //Création de la classe arme qui servira a équiper un joueur
-    class Arme {
-        constructor(arme) {
-            this._pd = weapons[arme];
-        }
-
-        get pd() {
-            return this._pd;
-        }
-
-        set pd(pd) {
-            this._pd = weapons[pd];
-        }
-
-    }
-
-    //Création de la classe joueur avec ses points de vies et ses points de dégats
-    class Joueur {
-        constructor(pv, weapon) {
-            this._pv = pv;
-            this._weapon = new Arme(weapon);
-        }
-
-        get pv() {
-            return this._pv;
-        }
-
-        set pv(pv) {
-            this._pv = pv;
-        }
-
-        get pd() {
-            return this._weapon.pd;
-        }
-
-        set pd(arme) {
-            this._weapon.pd = arme;
-
-        }
-    }
 
     //Unification des classes autour d'un seul et même tableau de bord pour simplifier la gestion du jeux
     class Info {
@@ -130,6 +89,5 @@ $(function() {
     }    
 
     //Prévention d'insertion de la classe Info dans les variables globales
-    window.Info = Info;
+    //window.Info = Info;
     
-})

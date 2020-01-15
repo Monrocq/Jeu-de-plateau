@@ -131,6 +131,8 @@ $(document).ready(function() {
 
     //initialisation et instanciation des infos
     dealer = 1;
+    
     info = new Info(dealer, 100, 'Gun', 100, 'Gun');
+    
     
 })
