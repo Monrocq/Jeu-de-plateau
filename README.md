@@ -36,7 +36,7 @@ Lorsque le joueur se défend, il encaisse 50% de dégâts en moins qu’en temps
 Dès que les points de vie d’un joueur (initialement à 100) tombent à 0 , celui-ci a perdu. Un message s’affiche et la partie est terminée.
 
 ## Etat actuel du projet
-**En cours de Validation**
+**Projet Validé!**
 ## Médail obtenue
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/df96fdbb630e491e84dd6f34628e78e3)](https://www.codacy.com/manual/Monrocq/Monrocq.github.io?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Monrocq/Monrocq.github.io&amp;utm_campaign=Badge_Grade)
 ## Installation
